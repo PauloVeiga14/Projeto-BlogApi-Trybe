@@ -6,17 +6,9 @@ const secret = process.env.JWT_SECRET;
 
 module.exports = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email } = req.body;
 
-    // if (!username || !password) {
-    //   return res.status(401).json({ message: 'É necessário usuário e senha para fazer login' });
-    // }
-    
-    const user = await User.findOne({ where: { username } });
-
-    // if (!user || user.password !== password) {
-    //   return res.status(401).json({ message: 'Usuário não existe ou senha inválida' });
-    // }
+    const user = await User.findOne({ where: { email } });
 
     const jwtConfig = {
       expiresIn: '7d',

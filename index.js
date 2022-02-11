@@ -1,5 +1,6 @@
 const express = require('express');
 const routes = require('./api/routes');
+const { validateEmail, validatePassword, validateUser } = require('./api/auth/validateLogin');
 
 const validateJWT = require('./api/auth/validateJWT');
 
@@ -13,3 +14,4 @@ app.get('/', (request, response) => {
 });
 
 app.get('/user', validateJWT, routes.getUsers);
+app.post('/login', validateEmail, validatePassword, validateUser, routes.login);
