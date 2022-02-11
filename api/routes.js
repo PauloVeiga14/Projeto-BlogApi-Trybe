@@ -7,6 +7,7 @@ const { validateDisplayName,
 const createUser = require('../controllers/createUser');
 const getUserById = require('../controllers/getUserById');
 const createCategory = require('../controllers/createCategory');
+const getCategories = require('../controllers/getCategories');
 
 module.exports = {
   getUsers,
@@ -19,4 +20,5 @@ module.exports = {
   createUser,
   getUserById,
   createCategory,
+  getCategories,
 };
