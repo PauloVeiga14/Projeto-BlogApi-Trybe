@@ -5,6 +5,7 @@ const { validateDisplayName,
   validateEmailForNewUser,
   validatePassForNewUser } = require('./auth/validateNewUser');
 const createUser = require('../controllers/createUser');
+const getUserById = require('../controllers/getUserById');
 
 module.exports = {
   getUsers,
@@ -14,5 +15,6 @@ module.exports = {
   validateDisplayName,
   validateEmailForNewUser,
   validatePassForNewUser,
+  getUserById,
   createUser,
 };
