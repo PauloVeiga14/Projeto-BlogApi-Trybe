@@ -1,5 +1,5 @@
-const getPosts = require('../controllers/posts');
+const getUsers = require('../controllers/getUsers');
 
 module.exports = {
-  getPosts,
+  getUsers,
 };

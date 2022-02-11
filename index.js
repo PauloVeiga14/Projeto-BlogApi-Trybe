@@ -10,4 +10,4 @@ app.get('/', (request, response) => {
   response.send();
 });
 
-app.get('/teste', routes.getPosts);
+app.get('/user', routes.getUsers);
