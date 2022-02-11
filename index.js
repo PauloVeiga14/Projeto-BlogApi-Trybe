@@ -1,10 +1,12 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const routes = require('./api/routes');
-const { validateEmail, validatePassword, validateUser } = require('./api/auth/validateLogin');
 
 const validateJWT = require('./api/auth/validateJWT');
 
 const app = express();
+
+app.use(bodyParser.json());
 
 app.listen(3000, () => console.log('ouvindo porta 3000!'));
 
@@ -14,4 +16,7 @@ app.get('/', (request, response) => {
 });
 
 app.get('/user', validateJWT, routes.getUsers);
-app.post('/login', validateEmail, validatePassword, validateUser, routes.login);
+app.post('/login',
+  routes.validateEmail, 
+  routes.validatePassword, 
+  routes.login);
