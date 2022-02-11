@@ -1,6 +1,5 @@
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
-// const Joi = require('joi');
 const { User } = require('../models');
 
 const secret = process.env.JWT_SECRET;

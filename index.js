@@ -16,7 +16,11 @@ app.get('/', (request, response) => {
 });
 
 app.get('/user', validateJWT, routes.getUsers);
-app.post('/user', routes.createUser);
+app.post('/user',
+  routes.validateDisplayName, 
+  routes.validateEmailForNewUser, 
+  routes.validatePassForNewUser, 
+  routes.createUser);
 app.post('/login',
   routes.validateEmail, 
   routes.validatePassword, 

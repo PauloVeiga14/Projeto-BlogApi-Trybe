@@ -1,44 +1,38 @@
 const validateDisplayName = async (req, res, next) => {
   const { displayName } = req.body;
-    
-  if (typeof displayName !== 'string') {
-    return res.status(400).json({ message: '"displayName" must be a string' });
-  }
   
   if (displayName.length < 8) {
     return res.status(400).json({ 
-      message: '"displayName" length must be at least 8 characters long', 
+      message: '"displayName" length must be at least 8 characters long',
     });
   }
         
     next();
   };
 
-const validateEmail = async (req, res, next) => {
+const validateEmailForNewUser = async (req, res, next) => {
   const { email } = req.body;
 
   if (email === undefined) {
     return res.status(400).json({ message: '"email" is required' });
   }
 
-  if (!(email.includes('@') && email.includes('.com'))) {
+  if (email.includes('@') === false || email.includes('.com') === false) {
     return res.status(400).json({ message: '"email" must be a valid email' });
   }
 
-  // A estratégia abaixo foi encontrada em: https://www.devmedia.com.br/validando-e-mail-em-inputs-html-com-javascript/26427
-
-  const emailFirstPart = email.value.substring(0, email.value.indexOf('@'));
+  const firstPartOfEmail = email.substring(0, email.indexOf('@'));
   
-  console.log(emailFirstPart);
-
-  if (emailFirstPart.length === 0) {
+  if (firstPartOfEmail.length === 0) {
     return res.status(400).json({ message: '"email" must be a valid email' });
   }
-          
+
+  console.log(firstPartOfEmail);
+
   next();
 };
 
-const validatePassword = async (req, res, next) => {
+const validatePassForNewUser = async (req, res, next) => {
   const { password } = req.body;
 
   if (password === undefined) {
@@ -54,6 +48,6 @@ const validatePassword = async (req, res, next) => {
 
   module.exports = {
     validateDisplayName,
-    validateEmail,
-    validatePassword,
+    validateEmailForNewUser,
+    validatePassForNewUser,
   };
