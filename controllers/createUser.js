@@ -10,8 +10,6 @@ module.exports = async (req, res) => {
 
     const user = await User.findOne({ where: { email } });
 
-  console.log(user);
-
     if (user !== null) {
       return res.status(409).json({ message: 'User already registered' });
     }

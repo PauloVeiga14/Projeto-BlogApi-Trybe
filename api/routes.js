@@ -6,6 +6,7 @@ const { validateDisplayName,
   validatePassForNewUser } = require('./auth/validateNewUser');
 const createUser = require('../controllers/createUser');
 const getUserById = require('../controllers/getUserById');
+const createCategory = require('../controllers/createCategory');
 
 module.exports = {
   getUsers,
@@ -15,6 +16,7 @@ module.exports = {
   validateDisplayName,
   validateEmailForNewUser,
   validatePassForNewUser,
-  getUserById,
   createUser,
+  getUserById,
+  createCategory,
 };

@@ -26,3 +26,4 @@ app.post('/login',
   routes.validateEmail, 
   routes.validatePassword, 
   routes.login);
+app.post('/categories', validateJWT, routes.createCategory);
