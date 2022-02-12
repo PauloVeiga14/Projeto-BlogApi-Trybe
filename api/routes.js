@@ -8,6 +8,8 @@ const createUser = require('../controllers/createUser');
 const getUserById = require('../controllers/getUserById');
 const createCategory = require('../controllers/createCategory');
 const getCategories = require('../controllers/getCategories');
+const createPost = require('../controllers/createPost');
+const { validateTitle, validateContent, validateCategoryIds } = require('./auth/validateBlogPost');
 
 module.exports = {
   getUsers,
@@ -21,4 +23,8 @@ module.exports = {
   getUserById,
   createCategory,
   getCategories,
+  createPost,
+  validateTitle,
+  validateContent,
+  validateCategoryIds,
 };

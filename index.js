@@ -28,3 +28,9 @@ app.post('/login',
   routes.login);
 app.post('/categories', validateJWT, routes.createCategory);
 app.get('/categories', validateJWT, routes.getCategories);
+app.post('/post',
+  validateJWT, 
+  routes.validateTitle,
+  routes.validateContent,
+  routes.validateCategoryIds,
+  routes.createPost);
