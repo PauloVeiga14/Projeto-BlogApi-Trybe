@@ -10,6 +10,7 @@ const createCategory = require('../controllers/createCategory');
 const getCategories = require('../controllers/getCategories');
 const createPost = require('../controllers/createPost');
 const { validateTitle, validateContent, validateCategoryIds } = require('./auth/validateBlogPost');
+const getPosts = require('../controllers/getPosts');
 
 module.exports = {
   getUsers,
@@ -27,4 +28,5 @@ module.exports = {
   validateTitle,
   validateContent,
   validateCategoryIds,
+  getPosts,
 };

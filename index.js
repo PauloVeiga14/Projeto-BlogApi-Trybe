@@ -34,3 +34,4 @@ app.post('/post',
   routes.validateContent,
   routes.validateCategoryIds,
   routes.createPost);
+app.get('/post', validateJWT, routes.getPosts);
